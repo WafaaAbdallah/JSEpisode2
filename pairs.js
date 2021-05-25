@@ -17,7 +17,7 @@
  * - It returns an empty array if it gets passed nothing:
  *       pairs() returns []
  ****************************************************************/
-
+ 
 /**********************************************
  * READ ME!!!!
  *
@@ -35,10 +35,26 @@
 Array.prototype.getRandom = function () {
   return this.splice(Math.floor(Math.random() * this.length), 1)[0];
 };
-
 function pairs(names) {
   // Your code goes here
+  if (names && names[0]){
+    let newName = names.sort((a, b) => 0.5 - Math.random());
+    let result=[];
+    let counter=0;
+    while(counter<newName.length){
+      if (newName.length -1 ==counter) result.push([newName[counter]] )
+      else result.push([newName[counter],newName[counter+1]] )
+      
+      counter+=2;
+    }
+    return result;
+  }
+  else {
+    return [];
+  }
 }
+
+
 
 module.exports = pairs;
 
